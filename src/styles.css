@@ -1,5 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  border: none;
+  color: white;
+  font-family: "Bellefair", serif;
+  font-weight: lighter;
+  font-style: normal;
+}
+
+body {
+  background: url(../src//assets/home/background-home-mobile.jpg) no-repeat;
+  background-size: cover;
+  background-color: black;
+  width: 100%;
+  height: 100dvh;
+}
+.container {
+  margin: auto;
+  width: 90%;
+  height: 90dvh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 10% 70% 20%;
+  /* background-color: purple; */
+}
+
+.menuOpen {
+  display: block;
+}
+.menuClose {
+  display: none;
+}
+
+.cabeca {
+  /* background-color: red; */
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#menuBurguer {
+  width: 1.8rem;
+  height: 1.4rem;
+  cursor: pointer;
+}
+
+ul {
+  height: 2rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+}
+li {
+  text-align: center;
+  font-size: 15px;
+}
+#logo {
+  width: 2rem;
+  height: 2rem;
+}
+.introducao {
+  /* background-color: blue; */
+  grid-row-start: 2;
+  grid-row-end: 3;
+  height: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 25px;
+  align-items: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 5rem;
+}
+h3 {
+  font-size: 1.1rem;
+}
+p {
+  text-align: center;
+}
+.bola {
+  cursor: pointer;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin: auto;
+}
+h2 {
+  color: black;
 }
