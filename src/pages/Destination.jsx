@@ -3,7 +3,7 @@ import Header from "../components/Header";
 
 function Destination() {
   return (
-    <div>
+    <div className="corpoDestination containerPadrao">
       <Header />
       <div className="container"></div>
     </div>

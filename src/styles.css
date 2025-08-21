@@ -1,4 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+.container {
+  
+}
+.corpoTechnology {
+  background: url(./assets/technology/background-technology-mobile.jpg)
+    no-repeat center/cover;
+}
+.corpoDestination {
+  background: url(./assets/destination/background-destination-mobile.jpg)
+    no-repeat center/cover;
+}
+.corpoHome {
+  background: url(./assets/home/background-home-mobile.jpg) no-repeat
+    center/cover;
+}
 
 * {
   margin: 0px;
@@ -10,72 +25,4 @@
   font-weight: lighter;
   font-style: normal;
 }
-body {
-  background: url(../src//assets/home/background-home-mobile.jpg) no-repeat
-    center/cover;
-  width: 100%;
-  height: 100dvh;
-  overflow: hidden;
-}
 
-.container {
-  margin: auto;
-  width: 90%;
-  height: 80dvh;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 0% 60% 50%;
-}
-
-.introducao {
-  grid-row-start: 2;
-  grid-row-end: 3;
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 25px;
-  align-items: center;
-  margin-top: 50px;
-}
-
-h1 {
-  font-size: 5rem;
-}
-h3 {
-  font-size: 1.1rem;
-}
-p {
-  text-align: center;
-}
-
-.bola {
-  cursor: pointer;
-  grid-row-start: 3;
-  grid-row-end: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  margin: auto;
-  animation: pulse 3s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 10px rgb(194, 194, 194);
-  }
-  50% {
-    box-shadow: 0 0 30px rgb(216, 216, 216);
-  }
-  100% {
-    box-shadow: 0 0 10px rgb(194, 194, 194);
-  }
-}
-
-h2 {
-  display: block;
-  color: rgba(0, 0, 65, 0.767);
-  font-size: 2rem;
-}
