@@ -40,3 +40,4 @@ yarn-error.log*
 *.pem
 .DS_Store
 Thumbs.db
+responsive.txt

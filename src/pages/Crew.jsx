@@ -3,8 +3,11 @@ import Header from "../components/Header";
 
 function Crew() {
   return (
-    <div className="container">
+    <div>
       <Header />
+      <div className="container">
+        <img src="" alt="" />
+      </div>
     </div>
   );
 }

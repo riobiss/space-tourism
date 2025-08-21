@@ -3,8 +3,9 @@ import Header from "../components/Header";
 
 function Destination() {
   return (
-    <div className="container">
+    <div>
       <Header />
+      <div className="container"></div>
     </div>
   );
 }

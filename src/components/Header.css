@@ -1,0 +1,81 @@
+.cabeca {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+#logo {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.fundo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#menuBurguer {
+  width: 1.8rem;
+  height: 1.6rem;
+  cursor: pointer;
+}
+ul {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: right;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(66, 64, 75, 0.342);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  border-radius: 8px;
+
+  margin: 0;
+  list-style: none;
+  transition: transform 0.2s ease;
+}
+
+.menuOpen ul {
+  transform: translateY(-50%) scaleX(0.9);
+}
+
+.menuClose ul {
+  transform: translateY(-50%) scaleX(0);
+}
+
+li {
+  display: block;
+  text-align: center;
+  margin: 0 5px; /* espaçamento entre os links */
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 10px;
+  display: block;
+  padding: 4px 4px;
+}
+
+.sumir {
+  display: none;
+}
+
+li:hover {
+  background-color: rgba(66, 64, 75, 0.342);
+  border-radius: 10px;
+}
+/* Responsivo até 375px */
+@media (max-width: 375px) {
+
+  ul {
+    min-width: 150px;
+    padding: 8px;
+    margin-right: 2px;
+  }
+}

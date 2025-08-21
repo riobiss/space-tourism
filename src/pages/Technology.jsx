@@ -2,8 +2,10 @@ import React from "react";
 import Header from "../components/Header";
 function Technology() {
   return (
-    <div className="container">
-      <Header />
+    <div >
+        <Header />
+      <div className="container">
+      </div>
     </div>
   );
 }
