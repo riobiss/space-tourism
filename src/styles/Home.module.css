@@ -51,10 +51,13 @@
   margin: auto;
   margin-top: 30%;
   animation: pulse 3s infinite;
-
+  text-decoration: none;
   grid-row-start: 3;
   grid-row-end: -1;
   display: flex;
+}
+.some {
+  text-decoration: none;
 }
 
 .explore:hover {
@@ -73,4 +76,3 @@
     box-shadow: 0 0 10px rgb(194, 194, 194);
   }
 }
-

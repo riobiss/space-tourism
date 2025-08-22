@@ -19,7 +19,7 @@ function Home() {
             </p>
           </div>
         </div>
-        <Link to="/destination">
+        <Link to="/destination" className={styles.some}>
           <h2 className={styles.explore}>Explore</h2>
         </Link>
       </div>

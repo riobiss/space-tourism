@@ -8,8 +8,6 @@
 
 .containerDestination {
   width: 90%;
-  height: 100dvh;
+  height: 90dvh;
   margin: auto;
-  display: grid;
-  grid-template-rows: 10% 55% 35%;
 }
