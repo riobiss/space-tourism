@@ -1,11 +1,14 @@
 import React from "react";
 import Header from "../components/Header";
+import styles from "../styles/Destination.module.css";
 
 function Destination() {
   return (
-    <div className="corpoDestination containerPadrao">
-      <Header />
-      <div className="container"></div>
+    <div className={styles.containerImg}>
+        <Header />
+      <div className={styles.containerDestination}>
+        <div className="container"></div>
+      </div>
     </div>
   );
 }

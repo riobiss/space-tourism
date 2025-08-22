@@ -8,32 +8,38 @@
 
 .containerCrew {
   width: 90%;
-  height: 100dvh;
+  height: 80dvh;
   margin: auto;
   display: grid;
-  grid-column: auto;
-  grid-row: 1fr 1fr 1fr;
+  grid-template-rows: 10% 55% 35%;
 }
+
 .pessoa {
   grid-row-start: 2;
   grid-row-end: 3;
   margin: auto;
-  margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
 }
+
 .pessoaImg {
-  display: block;
-  margin: auto;
-  width: 80%;
-  height: 80%;
-  margin-bottom: 11%;
+  width: 65%;
+  height: 65%;
 }
+
 .info {
+  height: 100%;
   grid-row-start: 3;
   grid-row-end: 4;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .role {
@@ -42,21 +48,45 @@
   margin-bottom: 2px;
   color: rgba(255, 255, 255, 0.589);
 }
+
 .nome {
-  font-size: 3rem;
+  font-size: 2.8rem;
   text-align: center;
   margin-bottom: 15px;
+  white-space: nowrap;
+}
+
+.radios {
+  display: none;
 }
 
 .slides {
   display: flex;
   justify-content: center;
   margin: 10px;
-  gap: 7px;
+  gap: 12px;
 }
 
 .texto {
   font-size: 1.1rem;
   text-align: center;
   margin-bottom: 40px;
+}
+
+.label {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.37);
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.label:hover {
+  background-color: rgba(255, 255, 255, 0.644);
+}
+
+.radios:checked + .label {
+  background-color: white;
 }

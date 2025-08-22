@@ -1,31 +1,34 @@
-.cabeca {
+.Header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;  
+  margin-top: 20px;
   grid-row-start: 1;
   grid-row-end: 2;
+  min-height: 50%;
+  margin: 20px;
 }
-.logo {
+.iconLogo {
   width: 2.5rem;
   height: 2.5rem;
 }
-.fundo {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-.menuBurguer {
+.iconBurguer {
   width: 1.8rem;
   height: 1.6rem;
   cursor: pointer;
 }
+.bgMenu {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .links {
   position: absolute;
   top: 50%;
-  right: 100%;
-  transform: translateY(-50%) scaleX(0);
+  right: 0;
   transform-origin: right;
   display: flex;
   flex-direction: row;
@@ -34,19 +37,16 @@
   padding: 10px;
   border-radius: 8px;
   margin: 0;
+  gap: 10px;
   list-style: none;
   transition: transform 0.2s ease;
 }
 .menuOpen ul {
+  position: absolute;
   transform: translateY(-50%) scaleX(0.9);
 }
 .menuClose ul {
   transform: translateY(-50%) scaleX(0);
-}
-.ancora {
-  display: block;
-  text-align: center;
-  margin: 0 5px; /* espaçamento entre os links */
 }
 .paginas {
   text-decoration: none;
@@ -58,9 +58,8 @@
 .sumir {
   display: none;
 }
-.ancora:hover {
+.links:hover {
   background-color: rgba(66, 64, 75, 0.342);
-  border-radius: 10px;
 } /* Responsivo até 375px */
 @media (max-width: 375px) {
   .links {

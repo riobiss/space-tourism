@@ -4,7 +4,7 @@ import Technology from "./pages/Technology";
 import Crew from "./pages/Crew";
 import Destination from "./pages/Destination";
 import { Routes, Route } from "react-router-dom";
-import "./styles.css";
+import "./styles/styles.css";
 
 function App() {
   return (

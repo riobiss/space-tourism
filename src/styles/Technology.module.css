@@ -1,0 +1,14 @@
+.containerImg {
+  background: url(../assets/technology/background-technology-mobile.jpg)
+    no-repeat center/cover;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+.containerTechnology {
+  width: 90%;
+  height: 100dvh;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 10% 55% 35%;
+}

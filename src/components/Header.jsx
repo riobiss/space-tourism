@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/shared/logo.svg";
 import Hamburguer from "../assets/shared/icon-hamburger.svg";
 import Close from "../assets/shared/icon-close.svg";
-import styles from "./Header.module.css";
+import styles from "../styles/Header.module.css";
 
 function Header() {
   const [active, setMenu] = useState(false);
@@ -12,11 +12,11 @@ function Header() {
 
   return (
     <div className="container">
-      <nav className={styles.cabeca}>
-        <Link to="/">
-          <img className={styles.logo} src={Logo} alt="Logo" />
-        </Link>
-        <div className={styles.fundo}>
+      <nav className={styles.Header}>
+        <div className={styles.bgMenu}>
+          <Link to="/">
+            <img className={styles.iconLogo} src={Logo} alt="Logo" />
+          </Link>
           <menu
             className={`${styles.menu} ${
               active ? styles.menuOpen : styles.menuClose
@@ -46,8 +46,8 @@ function Header() {
             </ul>
           </menu>
           <img
-            className={styles.menuBurguer}
-            src={active ? Close : Hamburguer}
+            className={styles.iconBurguer}
+            src={Hamburguer}
             alt="Hamburguer"
             onClick={toggleMode}
           />

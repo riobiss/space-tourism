@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../components/Header";
-import styles from "./Home.module.css";
-
+import styles from "../styles/Home.module.css";
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className={styles.containerImg}>
+      <Header />
       <div className={styles.containerHome}>
-        <Header />
         <div>
           <div className={styles.introducao}>
             <h3 className={styles.h3}>SO, YOU WANT TO TRAVEL TO</h3>
@@ -19,7 +19,9 @@ function Home() {
             </p>
           </div>
         </div>
-        <h2 className={styles.explore}>Explore</h2>
+        <Link to="/destination">
+          <h2 className={styles.explore}>Explore</h2>
+        </Link>
       </div>
     </div>
   );
