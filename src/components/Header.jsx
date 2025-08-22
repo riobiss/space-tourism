@@ -8,7 +8,7 @@ import styles from "../styles/Header.module.css";
 function Header() {
   const [active, setMenu] = useState(false);
 
-  const toggleMode = () => setMenu(!active);
+  const toggleMenu = () => setMenu(!active);
 
   return (
     <div className="container">
@@ -17,7 +17,14 @@ function Header() {
           <Link to="/">
             <img className={styles.iconLogo} src={Logo} alt="Logo" />
           </Link>
-          <menu
+
+          {/* Overlay escuro */}
+          {active && (
+            <div className={styles.overlay} onClick={toggleMenu}></div>
+          )}
+
+          {/* Menu lateral */}
+          <div
             className={`${styles.menu} ${
               active ? styles.menuOpen : styles.menuClose
             }`}
@@ -44,12 +51,14 @@ function Header() {
                 </Link>
               </li>
             </ul>
-          </menu>
+          </div>
+
+          {/* Ícone hamburguer */}
           <img
             className={styles.iconBurguer}
-            src={Hamburguer}
-            alt="Hamburguer"
-            onClick={toggleMode}
+            src={active ? Close : Hamburguer}
+            alt="Menu"
+            onClick={toggleMenu}
           />
         </div>
       </nav>

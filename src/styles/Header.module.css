@@ -2,69 +2,89 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  min-height: 50%;
   margin: 20px;
+  min-height: 50%;
 }
+
 .iconLogo {
   width: 2.5rem;
   height: 2.5rem;
 }
+
 .iconBurguer {
   width: 1.8rem;
   height: 1.6rem;
   cursor: pointer;
+  z-index: 5;
 }
+
 .bgMenu {
   width: 100%;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 4;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 49%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  background-color: rgba(66, 64, 75, 0.288);
+  backdrop-filter: blur(10px);
+
+  padding-left: 0px;
+  gap: 15px;
+  border-radius: 0 0 0 8px;
+  z-index: 4;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;  
+}
+
+.menuOpen {
+  transform: translateX(0);
+}
+
+.menuClose {
+  transform: translateX(100%);
 }
 
 .links {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform-origin: right;
+  margin-top: 7%;
   display: flex;
-  flex-direction: row;
-  background-color: rgba(66, 64, 75, 0.342);
-  backdrop-filter: blur(10px);
-  padding: 10px;
-  border-radius: 8px;
-  margin: 0;
-  gap: 10px;
-  list-style: none;
-  transition: transform 0.2s ease;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
 }
-.menuOpen ul {
-  position: absolute;
-  transform: translateY(-50%) scaleX(0.9);
+
+.ancora {
+  display: block;
 }
-.menuClose ul {
-  transform: translateY(-50%) scaleX(0);
-}
+
 .paginas {
   text-decoration: none;
   color: white;
-  font-size: 10px;
-  display: block;
-  padding: 4px 4px;
+  font-size: 14px;
+  padding: 6px 10px;
 }
-.sumir {
-  display: none;
-}
-.links:hover {
-  background-color: rgba(66, 64, 75, 0.342);
-} /* Responsivo até 375px */
-@media (max-width: 375px) {
-  .links {
-    min-width: 150px;
-    padding: 8px;
-    margin-right: 2px;
-  }
+
+.paginas:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 6px;
 }
