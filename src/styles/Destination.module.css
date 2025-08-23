@@ -1,13 +1,117 @@
 .containerImg {
   background: url(../assets/destination/background-destination-mobile.jpg)
-    no-repeat  top/cover;
+    no-repeat center/cover;
   width: 100%;
-  height: 100dvh;
-  overflow: hidden;
 }
 
 .containerDestination {
   width: 90%;
-  height: 90dvh;
+  height: 100dvh;
   margin: auto;
+  display: grid;
+  grid-template-rows: 5% 22% 8% 5% 20% 5% 30%;
+}
+.h3 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: center;
+  margin: auto;
+  font-size: 1.1rem;
+}
+.imgPlanet {
+  width: 150px;
+  animation: expand 1s forwards, girar 10s linear 1s infinite;
+}
+.planetSelected {
+  margin-top: 10px;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  display: none;
+}
+
+.planets {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.h1 {
+  text-align: center;
+}
+.label {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+.input:checked + .label {
+  text-decoration-line: underline;
+}
+.label:hover {
+cursor: pointer;
+}
+
+.description {
+  margin-top: 2%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.line {
+  margin: auto;
+  width: 90%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.39);
+}
+.extra {
+  font-size: 0.8rem;
+  color: rgba(227, 225, 255, 0.534);
+}
+.containerInfo {
+  margin-top: 10px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 1.3rem;
+  height: 50px;
+}
+.distance {
+  font-size: 1.8rem;
+  white-space: nowrap;
+}
+@keyframes expand {
+  from {
+    transform: scale(0) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes girar {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@media screend and (min-width: 600px) {
+}
+.containerImg {
+  background: url(../assets/destination/background-destination-tablet.jpg)
+    no-repeat center/cover;
+}
+
+@media screen and (min-width: 992px) {
+  .containerImg {
+    background: url(../assets/destination/background-destination-desktop.jpg)
+      no-repeat center/cover;
+  }
 }

@@ -4,12 +4,12 @@ import Data from "../data.json";
 import styles from "../styles/Crew.module.css";
 
 function Crew() {
-  const [selected, setSelected] = useState(0); // começa no primeiro membro
+  const [selected, setSelected] = useState(0); 
   const images = require.context("../assets/crew");
-  const crewMember = Data.crew[selected]; // pega o membro atual
+  const crewMember = Data.crew[selected]; 
 
   const handleChange = (e) => {
-    const index = Number(e.target.value); // pega o value do radio
+    const index = Number(e.target.value);
     setSelected(index);
   };
 
@@ -24,7 +24,7 @@ function Crew() {
             className={styles.pessoaImg}
           />
           <div className={styles.slides}>
-            {Data.crew.map((_, i) => (
+            {Data.crew.map((b, i) => (
               <div key={i}>
                 <input
                   type="radio"

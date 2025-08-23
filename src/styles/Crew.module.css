@@ -2,16 +2,14 @@
   background: url(../assets/crew/background-crew-mobile.jpg) no-repeat
     center/cover;
   width: 100%;
-  height: 100dvh;
-  overflow: hidden;
 }
 
 .containerCrew {
   width: 90%;
-  height: 80dvh;
+  height: 100dvh;
   margin: auto;
   display: grid;
-  grid-template-rows: 10% 55% 35%;
+  grid-template-rows: 10% 50% 40%;
 }
 
 .pessoa {
@@ -28,8 +26,8 @@
 }
 
 .pessoaImg {
-  width: 65%;
-  height: 65%;
+  width: 70%;
+  height: 70%;
 }
 
 .info {
@@ -89,4 +87,18 @@
 
 .radios:checked + .label {
   background-color: white;
+}
+
+@media screend and (min-width: 600px) {
+}
+.containerImg {
+  background: url(../assets/crew/background-crew-tablet.jpg) no-repeat
+    center/cover;
+}
+
+@media screen and (min-width: 992px) {
+  .containerImg {
+    background: url(../assets/crew/background-crew-desktop.jpg) no-repeat
+      center/cover;
+  }
 }

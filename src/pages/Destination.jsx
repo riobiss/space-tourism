@@ -2,32 +2,55 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import styles from "../styles/Destination.module.css";
 import Data from "../data.json";
-import Moon from "../assets/destination/image-moon.webp";
 
 function Destination() {
-  const Moon = Data.destinations;
-  console.log(Moon);
-
+  const [selected, setSelected] = useState(0);
+  const images = require.context("../assets/destination");
+  const currentPlanet = Data.destinations[selected];
+  
   return (
     <div className={styles.containerImg}>
       <Header />
       <div className={styles.containerDestination}>
-        <h2></h2>
-        <img src={Moon} alt="" />
-        <h3>hello</h3>
-        <h1>Moon</h1>
-        <div className="planets">
-          <input type="button" name="planet" id="planet1" value="Monn" />
-          <input type="button" name="planet" id="planet2" value="Mars" />
-          <input type="button" name="planet" id="planet3" value="Eurora" />
-          <input type="button" name="planet" id="planet4" value="Titan" />
+        <h3 className={styles.h3}>PICK YOUR DESTINATION</h3>
+
+        <div className={styles.planetSelected}>
+          <img
+            className={styles.imgPlanet}
+            src={images(
+              `./${currentPlanet.images.webp || currentPlanet.images.png}`
+            )}
+            alt={currentPlanet.name}
+          />
+    
         </div>
-        <p>
-          See our planet as you’ve never seen it before. A perfect relaxing trip
-          away to help regain perspective and come back refreshed. While you’re
-          there, take in some history by visiting the Luna 2 and Apollo 11
-          landing sites.
-        </p>
+
+        <div className={styles.planets}>
+          {Data.destinations.map((planet, index) => (
+            <div key={planet.name}>
+              <input
+                className={styles.input}
+                type="radio"
+                name="planet"
+                id={`planet${index}`}
+                checked={selected === index}
+                onChange={() => setSelected(index)}
+              />
+              <label htmlFor={`planet${index}`} className={styles.label}>
+                {planet.name.toUpperCase()}
+              </label>
+            </div>
+          ))}
+        </div>
+        <h1 className={styles.h1}>{currentPlanet.name.toUpperCase()}</h1>
+        <p className={styles.description}>{currentPlanet.description}</p>
+        <div className={styles.line}></div>
+        <div className={styles.containerInfo}>
+          <p className={styles.extra}>AVG. DISTANCE</p>
+          <p className={styles.extra}>EST. TRAVEL TIME</p>
+          <p className={styles.distance}>{currentPlanet.distance.toUpperCase()}</p>
+          <p className={styles.distance}>{currentPlanet.travel.toUpperCase()}</p>
+        </div>
       </div>
     </div>
   );
