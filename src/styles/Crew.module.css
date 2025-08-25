@@ -2,16 +2,25 @@
   background: url(../assets/crew/background-crew-mobile.jpg) no-repeat
     center/cover;
   width: 100%;
+  min-height: 100dvh;
 }
 
 .containerCrew {
   width: 90%;
-  height: 100dvh;
   margin: auto;
   display: grid;
-  grid-template-rows: 10% 50% 40%;
+  grid-template-rows:
+    minmax(1rem, 2rem)
+    minmax(17rem, 20rem)
+    minmax(10rem, 12rem);
 }
-
+.h2 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: center;
+  margin: auto;
+  font-size: 1.1rem;
+}
 .pessoa {
   grid-row-start: 2;
   grid-row-end: 3;
@@ -21,13 +30,12 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: start;
-  gap: 20px;
+  justify-content: center;
 }
 
 .pessoaImg {
-  width: 70%;
-  height: 70%;
+  width: max(200px, 50%);
+  height: max(200px, 55%);
 }
 
 .info {
@@ -43,7 +51,6 @@
 .role {
   display: inline;
   text-align: center;
-  margin-bottom: 2px;
   color: rgba(255, 255, 255, 0.589);
 }
 
@@ -59,16 +66,15 @@
 }
 
 .slides {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  margin: 10px;
   gap: 12px;
 }
 
 .texto {
   font-size: 1.1rem;
   text-align: center;
-  margin-bottom: 40px;
 }
 
 .label {
@@ -89,11 +95,46 @@
   background-color: white;
 }
 
-@media screend and (min-width: 600px) {
-}
-.containerImg {
-  background: url(../assets/crew/background-crew-tablet.jpg) no-repeat
-    center/cover;
+@media screen and (min-width: 600px) {
+  .containerImg {
+    background: url(../assets/crew/background-crew-tablet.jpg) no-repeat
+      center/cover;
+  }
+  .h2 {
+    text-align: start;
+    width: 100%;
+    max-width: 677.188px;
+    height: 18px;
+    margin: 7px;
+  }
+  .containerCrew {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-rows:
+      minmax(1rem, 2rem)
+      minmax(10rem, 11rem)
+      minmax(22rem, 26rem)
+  }
+  .pessoa {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    flex-flow: column-reverse nowrap;
+    justify-content: start;
+    gap: 20px;
+  }
+  .pessoaImg {
+    width: 100%;
+    height: 100%;
+    max-width: 50%;
+  }
+  .info {
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .slides {
+    margin-top: 0px;
+  }
 }
 
 @media screen and (min-width: 992px) {

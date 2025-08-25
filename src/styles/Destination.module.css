@@ -2,16 +2,23 @@
   background: url(../assets/destination/background-destination-mobile.jpg)
     no-repeat center/cover;
   width: 100%;
+  min-height: 100dvh;
 }
 
 .containerDestination {
   width: 90%;
-  height: 100dvh;
   margin: auto;
   display: grid;
-  grid-template-rows: 5% 22% 8% 5% 20% 5% 30%;
+  grid-template-rows:
+    minmax(1rem, 2rem)
+    minmax(7rem, 10rem)
+    minmax(2rem, 3rem)
+    minmax(3rem, 4rem)
+    minmax(7rem, 8rem)
+    1rem
+    minmax(4rem, 5rem);
 }
-.h3 {
+.h2 {
   grid-row-start: 1;
   grid-row-end: 2;
   text-align: center;
@@ -23,7 +30,6 @@
   animation: expand 1s forwards, girar 10s linear 1s infinite;
 }
 .planetSelected {
-  margin-top: 10px;
   grid-row-start: 2;
   grid-row-end: 3;
   display: flex;
@@ -51,14 +57,13 @@
   font-size: 1.2rem;
 }
 .input:checked + .label {
-  text-decoration-line: underline;
+  border-bottom: 1px solid white;
 }
 .label:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 .description {
-  margin-top: 2%;
   text-align: center;
   font-size: 1.2rem;
 }
@@ -102,11 +107,52 @@ cursor: pointer;
   }
 }
 
-@media screend and (min-width: 600px) {
-}
-.containerImg {
-  background: url(../assets/destination/background-destination-tablet.jpg)
-    no-repeat center/cover;
+@media screen and (min-width: 600px) {
+  .containerImg {
+    background: url(../assets/destination/background-destination-tablet.jpg)
+      no-repeat center/cover;
+  }
+  .h2 {
+    text-align: start;
+    width: 100%;
+    max-width: 677.188px;
+    margin: 7px;
+    height: 18px;
+  }
+  .imgPlanet {
+    width: 250px;
+  }
+  .containerDestination {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-rows:
+      minmax(1rem, 2rem)
+      minmax(10rem, 19rem)
+      minmax(3rem, 4rem)
+      minmax(3rem, 4rem)
+      minmax(7rem, 8rem)
+      1rem
+      minmax(6rem, 5rem)
+  }
+  .planets {
+    justify-content: center;
+    gap: 10px;
+  }
+  .h1 {
+    margin: auto;
+    font-size: 3rem;
+  }
+  .description {
+    width: 70%;
+    margin: auto;
+  }
+  .extra {
+    font-size: 1rem;
+  }
+  .distance {
+    font-size: 2.2rem;
+  }
 }
 
 @media screen and (min-width: 992px) {

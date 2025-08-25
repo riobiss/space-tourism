@@ -1,15 +1,19 @@
 .containerImg {
-  background: url(../assets/home/background-home-mobile.jpg) no-repeat
-    center/cover;
+  background: url(../assets/home/background-home-mobile.jpg) no-repeat center;
+  min-height: 100dvh;
+  margin: 0;
+  background-size: cover;
+  overflow: hidden;
 }
 
 .containerHome {
   margin: auto;
   width: 90%;
-  height: 100dvh;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 1fr 3fr 2fr;
+  grid-template-rows:
+    minmax(200px, 300px)
+    minmax(350px, 350px);
 }
 
 .introducao {
@@ -20,19 +24,17 @@
   gap: 10px;
   align-items: center;
   margin-top: 50px;
-
-  .h1 {
-    font-size: 5rem;
-  }
-  .h3 {
-    font-size: 1.1rem;
-  }
-  .texto {
-    text-align: center;
-    font-size: 1rem;
-  }
 }
-
+.h1 {
+  font-size: 5rem;
+}
+.h2 {
+  font-size: 1.1rem;
+}
+.texto {
+  text-align: center;
+  font-size: 1rem;
+}
 .explore {
   display: block;
   font-size: 2rem;
@@ -44,16 +46,13 @@
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  margin: auto;
-  margin-top: 40%;
-  animation: pulse 3s infinite;
-  text-decoration: none;
-  grid-row-start: 3;
+  animation: pulse 3s infinite linear;
+  grid-row-start: 2;
   grid-row-end: -1;
   display: flex;
-}
-.some {
+  margin: auto;
   text-decoration: none;
+
 }
 
 .explore:hover {
@@ -74,16 +73,25 @@
   }
 }
 
-@media screend and (min-width: 600px) {
+@media screen and (min-width: 600px) {
+  .containerImg {
+    background: url(../assets/home/background-home-tablet.jpg) no-repeat
+    right/cover;
+  }
+  .texto {
+    width: 70%;
   
-}.containerImg {
-  background: url(../assets/home/background-home-tablet.jpg) no-repeat center/cover;
+   }
+  .explore {
+  width: 250px;
+  height: 250px;
+  }
 }
 
 
 @media screen and (min-width: 992px) {
   .containerImg {
-    background: url(../assets/home/background-home-desktop.jpg)
-      no-repeat center/cover;
+    background: url(../assets/home/background-home-desktop.jpg) no-repeat
+      center/cover;
   }
 }

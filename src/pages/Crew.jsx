@@ -17,6 +17,7 @@ function Crew() {
     <div className={styles.containerImg}>
         <Header />
       <div className={styles.containerCrew}>
+        <h2 className={styles.h2}> <span className="categoria">02</span> MEET YOUR CREW</h2>
         <div className={styles.pessoa}>
           <img
             src={images(`./${crewMember.images.webp || crewMember.images.png}`)}

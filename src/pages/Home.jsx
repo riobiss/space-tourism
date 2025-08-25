@@ -9,7 +9,7 @@ function Home() {
       <div className={styles.containerHome}>
         <div>
           <div className={styles.introducao}>
-            <h3 className={styles.h3}>SO, YOU WANT TO TRAVEL TO</h3>
+            <h2 className={styles.h2}>SO, YOU WANT TO TRAVEL TO</h2>
             <h1 className={styles.h1}>SPACE</h1>
             <p className={styles.texto}>
               Let’s face it; if you want to go to space, you might as well
@@ -19,8 +19,8 @@ function Home() {
             </p>
           </div>
         </div>
-        <Link to="/destination" className={styles.some}>
-          <h2 className={styles.explore}>Explore</h2>
+        <Link to="/destination" className={styles.explore}>
+          Explore
         </Link>
       </div>
     </div>
