@@ -2,49 +2,53 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import styles from "../styles/Technology.module.css";
 import Data from "../data.json";
-function Technology() {
-  const images = require.context("../assets/technology");
-  const [selected, setSelected] = useState(0);
-  const currentTech = Data.technology[selected];
-  console.log(images);
+
+function TechnologyPage() {
+  const techImages = require.context("../assets/technology");
+  const [selectedTech, setSelectedTech] = useState(0);
+  const activeTech = Data.technology[selectedTech];
+
   return (
-    <div className={styles.containerImg}>
+    <div className={styles.pageWrapper}>
       <Header />
-      <div className={styles.containerTechnology}>
-        <h2 className={styles.h2}><span className="categoria">03</span> SPACE LAUNCH 101</h2>
+
+      <div className={styles.technologyWrapper}>
+        <h2 className={styles.pageTitle}>
+          <span className={styles.category}>03</span> SPACE LAUNCH 101
+        </h2>
+
         <img
-          className={styles.img}
-          src={images(`./${currentTech.images.landscape}`)}
-          alt={currentTech.name}
+          className={styles.image}
+          src={techImages(`./${activeTech.images.landscape}`)}
+          alt={activeTech.name}
         />
-        <div className={styles.labels}>
-          {Data.technology.map((techAtual, index) => {
-            return (
-              <div key={techAtual.id}>
-                <input
-                  className={styles.input}
-                  type="radio"
-                  name="tech"
-                  id={`techId${index}`}
-                  checked={selected === index}
-                  onChange={() => setSelected(index)}
-                />
-                <label htmlFor={`techId${index}`} className={styles.label}>
-                  {index + 1}
-                </label>
-              </div>
-            );
-          })}
+
+        <div className={styles.radioGroup}>
+          {Data.technology.map((tech, index) => (
+            <div key={tech.id} className={styles.radioItem}>
+              <input
+                className={styles.radioInput}
+                type="radio"
+                name="tech"
+                id={`tech-${index}`}
+                checked={selectedTech === index}
+                onChange={() => setSelectedTech(index)}
+              />
+              <label htmlFor={`tech-${index}`} className={styles.radioLabel}>
+                {index + 1}
+              </label>
+            </div>
+          ))}
         </div>
-        <div className={styles.info}>
-          <h3 className={styles.terminology}>THE TERMINOLOGY...</h3>
-          <h1 className={styles.techName}>{currentTech.name}</h1>
+
+        <div className={styles.techInfo}>
+          <h3 className={styles.subtitle}>THE TERMINOLOGY...</h3>
+          <h1 className={styles.techName}>{activeTech.name}</h1>
+          <p className={styles.description}>{activeTech.description}</p>
         </div>
-        <p className={styles.description}>{currentTech.description}</p>
-        <p></p>
       </div>
     </div>
   );
 }
 
-export default Technology;
+export default TechnologyPage;

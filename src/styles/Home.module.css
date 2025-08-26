@@ -1,8 +1,7 @@
 .containerImg {
-  background: url(../assets/home/background-home-mobile.jpg) no-repeat center;
+  background: url(../assets/home/background-home-mobile.jpg) no-repeat
+    center/cover;
   min-height: 100dvh;
-  margin: 0;
-  background-size: cover;
   overflow: hidden;
 }
 
@@ -10,49 +9,48 @@
   margin: auto;
   width: 90%;
   display: grid;
-  grid-template-columns: auto;
   grid-template-rows:
     minmax(200px, 300px)
-    minmax(350px, 350px);
+    350px;
 }
 
 .introducao {
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row: 1/2;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   gap: 10px;
   align-items: center;
   margin-top: 50px;
 }
+
 .h1 {
   font-size: 5rem;
 }
+
 .h2 {
   font-size: 1.1rem;
 }
+
 .texto {
   text-align: center;
   font-size: 1rem;
 }
+
 .explore {
-  display: block;
-  font-size: 2rem;
-  cursor: pointer;
+  grid-row: 2/3;
+  display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
+  font-size: 2rem;
+  cursor: pointer;
   background-color: white;
   color: rgb(0, 0, 65);
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  animation: pulse 3s infinite linear;
-  grid-row-start: 2;
-  grid-row-end: -1;
-  display: flex;
-  margin: auto;
   text-decoration: none;
-
+  animation: pulse 3s infinite linear;
 }
 
 .explore:hover {
@@ -62,36 +60,60 @@
 }
 
 @keyframes pulse {
-  0% {
+  0%,
+  100% {
     box-shadow: 0 0 10px rgb(194, 194, 194);
   }
   50% {
     box-shadow: 0 0 30px rgb(216, 216, 216);
-  }
-  100% {
-    box-shadow: 0 0 10px rgb(194, 194, 194);
   }
 }
 
 @media screen and (min-width: 600px) {
   .containerImg {
     background: url(../assets/home/background-home-tablet.jpg) no-repeat
-    right/cover;
+      right/cover;
   }
   .texto {
     width: 70%;
-  
-   }
+  }
   .explore {
-  width: 250px;
-  height: 250px;
+    width: 250px;
+    height: 250px;
   }
 }
-
 
 @media screen and (min-width: 992px) {
   .containerImg {
     background: url(../assets/home/background-home-desktop.jpg) no-repeat
       center/cover;
+  }
+  .containerHome {
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 90dvh;
+  }
+  .introducao {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .explore {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    margin: auto;
+  }
+  .h2 {
+    font-size: 1.5rem;
+  }
+  .h1 {
+    font-size: 8rem;
+  }
+  .texto {
+    font-size: 1.5rem;
   }
 }

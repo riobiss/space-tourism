@@ -4,57 +4,66 @@ import styles from "../styles/Destination.module.css";
 import Data from "../data.json";
 
 function Destination() {
-  const [selected, setSelected] = useState(0);
-  const images = require.context("../assets/destination");
-  const currentPlanet = Data.destinations[selected];
+  const [activePlanetIndex, setActivePlanetIndex] = useState(0);
+  const planetImages = require.context("../assets/destination");
+  const activePlanet = Data.destinations[activePlanetIndex];
 
   return (
-    <div className={styles.containerImg}>
+    <div className={styles.pageWrapper}>
       <Header />
-      <div className={styles.containerDestination}>
-        <h2 className={styles.h2}>  <span className="categoria">01 </span>PICK YOUR DESTINATION</h2>
+      <div className={styles.destinationWrapper}>
+        <h2 className={styles.subtitle}>
+          <span className={styles.stepNumber}>01</span> Pick Your Destination
+        </h2>
 
-        <div className={styles.planetSelected}>
-          <img
-            className={styles.imgPlanet}
-            src={images(
-              `./${currentPlanet.images.webp || currentPlanet.images.png}`
-            )}
-            alt={currentPlanet.name}
-          />
+        <div className={styles.leftColumn}>
+          <div className={styles.imageWrapper}>
+            <img
+              className={styles.planetImage}
+              src={planetImages(
+                `./${activePlanet.images.webp || activePlanet.images.png}`
+              )}
+              alt={activePlanet.name}
+            />
+          </div>
         </div>
 
-        <div className={styles.planets}>
-          {Data.destinations.map((planet, index) => {
-            return (
-              <div key={planet.name}>
-                <input
-                  className={styles.input}
-                  type="radio"
-                  name="planet"
-                  id={`planet${index}`}
-                  checked={selected === index}
-                  onChange={() => setSelected(index)}
-                />
-                <label htmlFor={`planet${index}`} className={styles.label}>
-                  {planet.name.toUpperCase()}
-                </label>
-              </div>
-            );
-          })}
-        </div>
-        <h1 className={styles.h1}>{currentPlanet.name.toUpperCase()}</h1>
-        <p className={styles.description}>{currentPlanet.description}</p>
-        <div className={styles.line}></div>
-        <div className={styles.containerInfo}>
-          <p className={styles.extra}>AVG. DISTANCE</p>
-          <p className={styles.extra}>EST. TRAVEL TIME</p>
-          <p className={styles.distance}>
-            {currentPlanet.distance.toUpperCase()}
-          </p>
-          <p className={styles.distance}>
-            {currentPlanet.travel.toUpperCase()}
-          </p>
+        <div className={styles.rightColumn}>
+          <div className={styles.planetSelector}>
+            {Data.destinations.map((planet, index) => {
+              return (
+                <div key={planet.name}>
+                  <input
+                    className={styles.radioInput}
+                    type="radio"
+                    name="planet"
+                    id={`planet${index}`}
+                    checked={activePlanetIndex === index}
+                    onChange={() => setActivePlanetIndex(index)}
+                  />
+                  <label htmlFor={`planet${index}`} className={styles.radioLabel}>
+                    {planet.name.toUpperCase()}
+                  </label>
+                </div>
+              );
+            })}
+          </div>
+
+          <h1 className={styles.planetName}>{activePlanet.name.toUpperCase()}</h1>
+          <p className={styles.planetDescription}>{activePlanet.description}</p>
+
+          <div className={styles.divider}></div>
+
+          <div className={styles.infoWrapper}>
+            <div>
+              <p className={styles.infoTitle}>Avg. Distance</p>
+              <p className={styles.infoValue}>{activePlanet.distance.toUpperCase()}</p>
+            </div>
+            <div>
+              <p className={styles.infoTitle}>Est. Travel Time</p>
+              <p className={styles.infoValue}>{activePlanet.travel.toUpperCase()}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

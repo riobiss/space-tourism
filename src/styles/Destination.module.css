@@ -1,83 +1,98 @@
-.containerImg {
+.pageWrapper {
   background: url(../assets/destination/background-destination-mobile.jpg)
     no-repeat center/cover;
   width: 100%;
   min-height: 100dvh;
 }
 
-.containerDestination {
+.destinationWrapper {
+  animation: expand 1s forwards;
   width: 90%;
   margin: auto;
   display: grid;
+  grid-template-columns: auto;
   grid-template-rows:
-    minmax(1rem, 2rem)
+    minmax(2rem, 2rem)
     minmax(7rem, 10rem)
-    minmax(2rem, 3rem)
-    minmax(3rem, 4rem)
-    minmax(7rem, 8rem)
+    minmax(4rem, 4rem)
+    7rem
     1rem
     minmax(4rem, 5rem);
 }
-.h2 {
-  grid-row-start: 1;
-  grid-row-end: 2;
+
+.rightColumn {
+  display: grid;
+  gap: 10px;
+}
+
+.subtitle {
+  grid-row: 1 / 2;
   text-align: center;
   margin: auto;
   font-size: 1.1rem;
 }
-.imgPlanet {
+
+.planetImage {
   width: 150px;
-  animation: expand 1s forwards, girar 10s linear 1s infinite;
+  animation: spin 10s linear infinite;
 }
-.planetSelected {
-  grid-row-start: 2;
-  grid-row-end: 3;
+
+.imageWrapper {
+  grid-row: 2 / 3;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.input {
+.radioInput {
   display: none;
 }
 
-.planets {
+.planetSelector {
   display: flex;
-  flex-flow: row nowrap;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-.h1 {
+.planetName {
   text-align: center;
 }
-.label {
+
+.radioLabel {
   padding: 5px;
   font-size: 1.2rem;
 }
-.input:checked + .label {
+
+.radioInput:checked + .radioLabel {
   border-bottom: 1px solid white;
 }
-.label:hover {
+
+.radioLabel:hover {
   cursor: pointer;
 }
 
-.description {
+.planetDescription {
   text-align: center;
   font-size: 1.2rem;
+  height: 100px;
 }
-.line {
+
+.divider {
   margin: auto;
+  margin-top: 10px;
   width: 90%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.39);
 }
-.extra {
+
+.infoTitle {
   font-size: 0.8rem;
   color: rgba(227, 225, 255, 0.534);
 }
-.containerInfo {
+
+.infoWrapper {
   margin-top: 10px;
   text-align: center;
   display: grid;
@@ -85,10 +100,13 @@
   font-size: 1.3rem;
   height: 50px;
 }
-.distance {
-  font-size: 1.8rem;
+
+.infoValue {
+  font-size: 1.7rem;
   white-space: nowrap;
 }
+
+/* animações */
 @keyframes expand {
   from {
     transform: scale(0) rotate(0deg);
@@ -98,7 +116,7 @@
   }
 }
 
-@keyframes girar {
+@keyframes spin {
   from {
     transform: scale(1) rotate(0deg);
   }
@@ -107,22 +125,23 @@
   }
 }
 
+/* Tablet */
 @media screen and (min-width: 600px) {
-  .containerImg {
+  .pageWrapper {
     background: url(../assets/destination/background-destination-tablet.jpg)
       no-repeat center/cover;
   }
-  .h2 {
+  .subtitle {
     text-align: start;
     width: 100%;
     max-width: 677.188px;
     margin: 7px;
     height: 18px;
   }
-  .imgPlanet {
+  .planetImage {
     width: 250px;
   }
-  .containerDestination {
+  .destinationWrapper {
     width: 90%;
     margin: auto;
     display: grid;
@@ -133,31 +152,71 @@
       minmax(3rem, 4rem)
       minmax(7rem, 8rem)
       1rem
-      minmax(6rem, 5rem)
+      minmax(6rem, 5rem);
   }
-  .planets {
+  .planetSelector {
     justify-content: center;
     gap: 10px;
   }
-  .h1 {
+  .planetName {
     margin: auto;
     font-size: 3rem;
   }
-  .description {
+  .planetDescription {
     width: 70%;
     margin: auto;
   }
-  .extra {
+  .infoTitle {
     font-size: 1rem;
   }
-  .distance {
+  .infoValue {
     font-size: 2.2rem;
   }
 }
 
+/* Desktop */
 @media screen and (min-width: 992px) {
-  .containerImg {
+  .pageWrapper {
     background: url(../assets/destination/background-destination-desktop.jpg)
       no-repeat center/cover;
+  }
+  .destinationWrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 100%;
+    margin: auto;
+  }
+  .planetImage {
+    width: 450px;
+  }
+  .leftColumn {
+    height: 90%;
+    grid-column: 1/2;
+  }
+  .rightColumn {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-rows: 50px 80px 150px 20px 100px;
+    height: 90%;
+    width: 80%;
+  }
+  .planetName {
+    font-size: 4rem;
+    margin-left: 0;
+    text-align: start;
+  }
+  .planetSelector {
+    align-items: center;
+    justify-content: start;
+  }
+  .planetDescription {
+    text-align: start;
+    margin-left: 0;
+  }
+  .divider {
+    margin-left: 0;
+  }
+  .infoWrapper {
+    margin-left: 0;
+    text-align: start;
   }
 }

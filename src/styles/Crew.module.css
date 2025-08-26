@@ -1,11 +1,10 @@
-.containerImg {
-  background: url(../assets/crew/background-crew-mobile.jpg) no-repeat
-    center/cover;
+.pageWrapper {
+  background: url(../assets/crew/background-crew-mobile.jpg) no-repeat center/cover;
   width: 100%;
   min-height: 100dvh;
 }
 
-.containerCrew {
+.crewWrapper {
   width: 90%;
   margin: auto;
   display: grid;
@@ -13,71 +12,72 @@
     minmax(1rem, 2rem)
     minmax(17rem, 20rem)
     minmax(10rem, 12rem);
+    justify-content: center;
+    align-items: center;
 }
-.h2 {
-  grid-row-start: 1;
-  grid-row-end: 2;
+
+.subtitle {
+  grid-row: 1/2;
   text-align: center;
   margin: auto;
   font-size: 1.1rem;
 }
-.pessoa {
-  grid-row-start: 2;
-  grid-row-end: 3;
+
+.leftColumn {
+  grid-row: 2/3;
   margin: auto;
-  width: 100%;
   height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.memberImage {
+  width: max(200px, 50%);
+  height: max(200px, 55%);
+}
+
+.rightColumn {
+  height: 100%;
+  grid-row: 3/4;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
 }
 
-.pessoaImg {
-  width: max(200px, 50%);
-  height: max(200px, 55%);
-}
-
-.info {
-  height: 100%;
-  grid-row-start: 3;
-  grid-row-end: 4;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: start;
-}
-
 .role {
+  font-size: 1.5rem;
   display: inline;
   text-align: center;
   color: rgba(255, 255, 255, 0.589);
 }
 
-.nome {
-  font-size: 2.8rem;
+.name {
+  font-size: 2rem;
   text-align: center;
   margin-bottom: 15px;
   white-space: nowrap;
 }
 
-.radios {
+.radioInput {
   display: none;
 }
 
-.slides {
-  margin-top: 20px;
+.radioWrapper {
   display: flex;
   justify-content: center;
   gap: 12px;
 }
 
-.texto {
+.bio {
   font-size: 1.1rem;
   text-align: center;
 }
 
-.label {
+.radioLabel {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -87,59 +87,90 @@
   transition: background-color 0.3s;
 }
 
-.label:hover {
+.radioLabel:hover {
   background-color: rgba(255, 255, 255, 0.644);
 }
 
-.radios:checked + .label {
+.radioInput:checked + .radioLabel {
   background-color: white;
 }
 
+/* Tablet */
 @media screen and (min-width: 600px) {
-  .containerImg {
-    background: url(../assets/crew/background-crew-tablet.jpg) no-repeat
-      center/cover;
+  .pageWrapper {
+    background: url(../assets/crew/background-crew-tablet.jpg) no-repeat center/cover;
   }
-  .h2 {
+  .subtitle {
     text-align: start;
     width: 100%;
     max-width: 677.188px;
     height: 18px;
     margin: 7px;
   }
-  .containerCrew {
-    width: 90%;
-    margin: auto;
-    display: grid;
+  .crewWrapper {
     grid-template-rows:
       minmax(1rem, 2rem)
       minmax(10rem, 11rem)
-      minmax(22rem, 26rem)
+      minmax(22rem, 26rem);
   }
-  .pessoa {
-    grid-row-start: 3;
-    grid-row-end: 4;
+  .leftColumn {
+    grid-row: 3/4;
     flex-flow: column-reverse nowrap;
     justify-content: start;
     gap: 20px;
   }
-  .pessoaImg {
+  .memberImage {
     width: 100%;
-    height: 100%;
+    max-height: 60%;
     max-width: 50%;
+    position: absolute;
+    bottom: 000px;
   }
-  .info {
-    grid-row-start: 2;
-    grid-row-end: 3;
+
+  .rightColumn {
+    grid-row: 2/3;
   }
-  .slides {
+  .radioWrapper {
     margin-top: 0px;
   }
 }
 
-@media screen and (min-width: 992px) {
-  .containerImg {
-    background: url(../assets/crew/background-crew-desktop.jpg) no-repeat
-      center/cover;
+/* Desktop */
+@media screen and (min-width: 1025px) {
+  .pageWrapper {
+    background: url(../assets/crew/background-crew-desktop.jpg) no-repeat center/cover;
   }
+  .crewWrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+ .memberImage {
+  position: absolute;
+  max-width: 30%;
+  height: 60%;
+  right: 0;
+  bottom: 0;
+  gap: 20px;
+ }
+ .rightColumn {
+  margin-top: 200px;
+  align-items: start;
+ }
+
+ .bio {
+  text-align: start;
+  font-size: 2rem;
+ }
+ .role {
+  font-size: 3.4rem;
+ }
+ .name {
+  font-size: 4rem;
+ }
+ .radioWrapper {
+  position: absolute;
+  bottom: 80px;
+
+  left: 90px;
+  gap: 30px;
+ }
 }

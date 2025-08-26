@@ -1,82 +1,88 @@
-.containerImg {
+.pageWrapper {
   background: url(../assets/technology/background-technology-mobile.jpg)
     no-repeat center/cover;
   width: 100%;
   min-height: 100dvh;
 }
-.containerTechnology {
+
+.technologyWrapper {
   width: 100%;
   margin: auto;
   display: grid;
   grid-template-rows:
     minmax(1rem, 2rem)
     minmax(12rem, 14rem)
-    minmax(2rem, 3rem)
+    minmax(4rem, 5rem)
     minmax(4rem, 5rem)
     minmax(10rem, 12rem);
-  animation: decima 0.5s;
+  animation: slideDown 0.5s;
 }
 
-.h2 {
-  grid-row-start: 1;
-  grid-row-end: 2;
+.pageTitle {
+  grid-row: 1/2;
   text-align: center;
   margin: auto;
   font-size: 1.1rem;
 }
-.input {
-  display: none;
+
+.category {
+  font-weight: bold;
+  margin-right: 0.5rem;
 }
 
-.img {
+.image {
   width: 100%;
   max-width: 500px;
   margin: auto;
 }
 
-.labels {
+.radioGroup {
   width: 70%;
   display: flex;
-  flex-flow: row nowrap;
   justify-content: center;
   gap: 40px;
   margin: auto;
 }
-.label {
+
+.radioInput {
+  display: none;
+}
+
+.radioLabel {
   font-size: 1.5rem;
   border: 2px solid grey;
   padding: 7px 14px;
   border-radius: 50%;
-}
-
-.label:hover {
   cursor: pointer;
 }
-.input:checked + .label {
+
+.radioInput:checked + .radioLabel {
   background-color: white;
   color: black;
 }
 
-.terminology {
+.techInfo {
+  text-align: center;
+  margin: auto;
+}
+
+.subtitle {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.534);
 }
 
-.info {
-  text-align: center;
-  margin: auto;
-}
 .techName {
   text-align: center;
   margin: auto;
 }
+
 .description {
   text-align: center;
-  margin: 0% 5% 0% 5%;
+  margin: 0 5%;
   font-size: 1.2rem;
 }
 
-@keyframes decima {
+@keyframes slideDown {
   from {
     transform: translateY(-100%);
   }
@@ -86,13 +92,38 @@
 }
 
 @media screen and (min-width: 600px) {
-  .containerImg {
-    background: url(../assets//technology/background-technology-tablet.jpg);
+  .pageWrapper {
+    background: url(../assets/technology/background-technology-tablet.jpg)
+      no-repeat center/cover;
   }
-  .h2 {
+
+  .pageTitle {
     text-align: start;
     max-width: 677.188px;
     height: 18px;
-    margin: 0px 5% 0px 5%;
+    margin: 0 5%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .technologyWrapper {
+    grid-template-rows:
+      minmax(1rem, 2rem)
+      minmax(35rem, 20rem);
+    grid-template-columns: 1fr 3fr 2fr;
+  }
+  .radioGroup {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    flex-flow: column;
+    align-items: center;
+  }
+  .image {
+    height: 100%;
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+  .techInfo {
+    grid-row: 2/3;
   }
 }

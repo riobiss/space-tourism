@@ -4,47 +4,51 @@ import Data from "../data.json";
 import styles from "../styles/Crew.module.css";
 
 function Crew() {
-  const [selected, setSelected] = useState(0); 
-  const images = require.context("../assets/crew");
-  const crewMember = Data.crew[selected]; 
+  const [activeMemberIndex, setActiveMemberIndex] = useState(0);
+  const crewImages = require.context("../assets/crew");
+  const activeMember = Data.crew[activeMemberIndex];
 
   const handleChange = (e) => {
     const index = Number(e.target.value);
-    setSelected(index);
+    setActiveMemberIndex(index);
   };
 
   return (
-    <div className={styles.containerImg}>
-        <Header />
-      <div className={styles.containerCrew}>
-        <h2 className={styles.h2}> <span className="categoria">02</span> MEET YOUR CREW</h2>
-        <div className={styles.pessoa}>
+    <div className={styles.pageWrapper}>
+      <Header />
+      <div className={styles.crewWrapper}>
+        <h2 className={styles.subtitle}>
+          <span className={styles.stepNumber}>02</span> Meet Your Crew
+        </h2>
+
+        <div className={styles.leftColumn}>
           <img
-            src={images(`./${crewMember.images.webp || crewMember.images.png}`)}
-            alt={crewMember.name}
-            className={styles.pessoaImg}
+            src={crewImages(`./${activeMember.images.webp || activeMember.images.png}`)}
+            alt={activeMember.name}
+            className={styles.memberImage}
           />
-          <div className={styles.slides}>
-            {Data.crew.map((b, i) => (
+          <div className={styles.radioWrapper}>
+            {Data.crew.map((member, i) => (
               <div key={i}>
                 <input
                   type="radio"
                   id={`radio${i}`}
-                  className={styles.radios}
-                  name="radio-btn"
+                  className={styles.radioInput}
+                  name="crew-radio"
                   value={i}
-                  checked={selected === i}
+                  checked={activeMemberIndex === i}
                   onChange={handleChange}
                 />
-                <label htmlFor={`radio${i}`} className={styles.label}></label>
+                <label htmlFor={`radio${i}`} className={styles.radioLabel}></label>
               </div>
             ))}
           </div>
         </div>
-        <div className={styles.info}>
-          <h2 className={styles.role}>{crewMember.role}</h2>
-          <h1 className={styles.nome}>{crewMember.name}</h1>
-          <p className={styles.texto}>{crewMember.bio}</p>
+
+        <div className={styles.rightColumn}>
+          <h2 className={styles.role}>{activeMember.role.toUpperCase()}</h2>
+          <h1 className={styles.name}>{activeMember.name.toUpperCase()}</h1>
+          <p className={styles.bio}>{activeMember.bio}</p>
         </div>
       </div>
     </div>

@@ -1,9 +1,5 @@
 .Header {
   padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5px;
 }
 
 .iconLogo {
@@ -44,27 +40,23 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: start;
   background-color: rgba(66, 64, 75, 0.322);
   backdrop-filter: blur(15px);
-
-  padding-left: 0px;
+  padding-left: 0;
   gap: 15px;
   border-radius: 0 0 0 8px;
   z-index: 4;
   transform: translateX(100%);
   transition: transform 0.3s ease;
 }
-.sumir {
-  display: none;
-}
+
 .menuOpen {
   transform: translateX(0);
 }
 
-.menuClose {
-  transform: translateX(100%);
+.sumir {
+  display: none;
 }
 
 .links {
@@ -91,65 +83,81 @@
   border-radius: 6px;
 }
 
+/* Tablet */
 @media screen and (min-width: 600px) {
   .iconLogo {
     width: 3rem;
     height: 3rem;
+    margin: 20px;
   }
 
-  .iconBurguer {
-    width: 2.3rem;
-    height: 2.1rem;
-    cursor: pointer;
-    z-index: 5;
-  }
   .overlay {
     display: none;
   }
-  .iconLogo {
-    margin: 20px;
-  }
+
   .links {
-    display: flex;
-    flex-flow: row nowrap;
+    flex-direction: row;
     position: absolute;
-    padding: 0px;
     top: 0;
     right: 0;
     margin: auto;
-    background-color: rgba(82, 82, 82, 0.288);
+    padding: 0;
+    background-color: rgba(82, 82, 82, 0.137);
     backdrop-filter: blur(5px);
     height: 100%;
     width: 55%;
-    gap: 0px;
+    gap: 0;
   }
+
   .ancora {
     height: 100%;
     width: 100%;
     margin: auto;
   }
+
   .Header {
-    padding: 0px;
+    padding: 0;
   }
+
   .paginas {
     font-size: 0.9rem;
     white-space: nowrap;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px;
+    padding: 0;
     height: 100%;
     width: 100%;
   }
 
   .paginas:hover {
-    border-radius: 0px;
+    border-radius: 0;
   }
 }
 
 @media screen and (min-width: 992px) {
   .sumir {
     display: block;
+    color: white;
+    margin-right: 10px;
   }
-
+  .links {
+    height:80%;
+    top: 20px;
+    background-color: rgba(82, 82, 82, 0.034);
+    backdrop-filter: blur(100px);
+    width: 55%;
+  }
+  .links::before {
+    content: "";
+    position: absolute;
+    left: -45%;
+    top: 48%;
+    width: 50%;
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.39);
+  }
+  .paginas {
+    color: rgba(255, 255, 255, 0.671);
+  }
 }
