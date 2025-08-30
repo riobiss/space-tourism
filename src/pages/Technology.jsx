@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import styles from "../styles/Technology.module.css";
 import Data from "../data.json";
@@ -7,6 +7,23 @@ function TechnologyPage() {
   const techImages = require.context("../assets/technology");
   const [selectedTech, setSelectedTech] = useState(0);
   const activeTech = Data.technology[selectedTech];
+
+  const [orientation, setOrientation] = useState("portrait");
+
+  useEffect(() => {
+    const checkOrientation = () => {
+      if (window.innerWidth >= 1025) {
+        setOrientation("portrait");
+      } else {
+        setOrientation("landscape");
+      }
+    };
+
+    checkOrientation();
+    window.addEventListener("resize", checkOrientation);
+
+    return () => window.removeEventListener("resize", checkOrientation);
+  }, []);
 
   return (
     <div className={styles.pageWrapper}>
@@ -18,8 +35,12 @@ function TechnologyPage() {
         </h2>
 
         <img
-          className={styles.image}
-          src={techImages(`./${activeTech.images.landscape}`)}
+          className={`${styles.image} ${
+            orientation === "portrait"
+              ? styles.portraitImage
+              : styles.landscapeImage
+          }`}
+          src={techImages(`./${activeTech.images[orientation]}`)}
           alt={activeTech.name}
         />
 

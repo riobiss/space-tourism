@@ -11,7 +11,7 @@
   display: grid;
   grid-template-rows:
     minmax(1rem, 2rem)
-    minmax(12rem, 14rem)
+    minmax(12rem, 15rem)
     minmax(4rem, 5rem)
     minmax(4rem, 5rem)
     minmax(10rem, 12rem);
@@ -29,10 +29,16 @@
   font-weight: bold;
   margin-right: 0.5rem;
 }
+.landscapeImage {
+  width: 100%;
+  height: 80%;
+}
+.portraitImage {
+  height: 100%;
+  width: 100%;
+}
 
 .image {
-  width: 100%;
-  max-width: 500px;
   margin: auto;
 }
 
@@ -50,7 +56,7 @@
 
 .radioLabel {
   font-size: 1.5rem;
-  border: 2px solid grey;
+  border: 2px solid rgba(128, 128, 128, 0.137);
   padding: 7px 14px;
   border-radius: 50%;
   cursor: pointer;
@@ -96,34 +102,76 @@
     background: url(../assets/technology/background-technology-tablet.jpg)
       no-repeat center/cover;
   }
-
+  .technologyWrapper {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-rows:
+      minmax(1rem, 2rem)
+      minmax(12rem, 25rem)
+      minmax(4rem, 5rem)
+      minmax(4rem, 5rem)
+      minmax(10rem, 12rem);
+    animation: slideDown 0.5s;
+  }
   .pageTitle {
     text-align: start;
     max-width: 677.188px;
     height: 18px;
     margin: 0 5%;
   }
+
+  .portraitImage {
+    width: 100%;
+    height: 90%;
+  }
+  .landscapeImage {
+    height: 80%;
+    width: 100%;
+  }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1025px) {
   .technologyWrapper {
     grid-template-rows:
       minmax(1rem, 2rem)
-      minmax(35rem, 20rem);
-    grid-template-columns: 1fr 3fr 2fr;
+      minmax(35rem, 80dvh);
+    grid-template-columns: 1fr 3fr 3fr;
+  }
+  .pageTitle {
+    grid-column: 1/-1;
   }
   .radioGroup {
     grid-column: 1/2;
     grid-row: 2/3;
     flex-flow: column;
     align-items: center;
+    gap: 60px;
+  }
+  .radioLabel {
+    padding: 15px 21px;
   }
   .image {
-    height: 100%;
     grid-column: 3/4;
     grid-row: 2/3;
   }
+  .portraitImage {
+    height: 100%;
+  }
   .techInfo {
     grid-row: 2/3;
+  }
+  .subtitle {
+    text-align: start;
+  }
+  .techName {
+    font-size: 4rem;
+    text-align: start;
+  }
+  .description {
+    font-size: 2rem;
+    text-align: start;
+    margin-left: 0;
+    color: rgba(255, 255, 255, 0.616);
   }
 }
